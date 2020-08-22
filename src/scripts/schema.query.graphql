@@ -1,0 +1,52 @@
+fragment TypeParts on __Type {
+    kind
+    name
+    # This is really ridiculous
+    ofType {
+        kind
+        name
+        ofType {
+            kind
+            name
+            ofType {
+                kind
+                name
+                ofType {
+                    kind
+                    name
+                    ofType {
+                        kind
+                        name
+                        ofType {
+                            kind
+                            name
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+fragment FieldParts on __Field {
+    name
+    args {
+        name
+        type { ...TypeParts }
+    }
+    type { ...TypeParts }
+}
+
+query SchemaQuery {
+    __schema {
+        queryType {
+            fields { ...FieldParts }
+        }
+
+        types {
+            kind
+            name
+            fields { ...FieldParts }
+        }
+    }
+}

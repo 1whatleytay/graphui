@@ -1,0 +1,59 @@
+{
+  "tree": [
+    {
+      "type": "scene",
+      "classes": {
+        "padding": {
+          "all": 4
+        },
+        "backgroundColor": {
+          "color": "gray",
+          "value": 100
+        },
+        "textColor": {
+          "color": "gray",
+          "value": 900
+        },
+        "width": "full"
+      },
+      "content": [
+        {
+          "type": "text",
+          "classes": {
+            "backgroundColor": {
+              "color": "green",
+              "value": 500
+            },
+            "textAlign": "center",
+            "width": "1/3"
+          },
+          "content": "YO"
+        },
+        {
+          "type": "text",
+          "classes": {
+            "backgroundColor": {
+              "color": "red",
+              "value": 500
+            },
+            "textAlign": "center",
+            "width": "1/3"
+          },
+          "content": "Hello"
+        },
+        {
+          "type": "text",
+          "classes": {
+            "backgroundColor": {
+              "color": "blue",
+              "value": 500
+            },
+            "textAlign": "center",
+            "width": "1/3"
+          },
+          "content": "IT GOING"
+        }
+      ]
+    }
+  ]
+}

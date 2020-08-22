@@ -1,6 +1,10 @@
 <template>
   <div class="p-4">
-    <Part v-for="(part, index) of tree" :key="index" :part="part" />
+    <Part
+        v-for="(part, index) of tree"
+        :key="index"
+        :part="part"
+        :context="context" />
   </div>
 </template>
 
@@ -10,7 +14,7 @@ import Part from '@/components/parts/Part'
 export default {
   name: 'Preview',
 
-  props: ['tree'],
+  props: ['tree', 'context'],
 
   components: { Part }
 }

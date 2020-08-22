@@ -1,7 +1,19 @@
 <template>
-  <TextPart :part="part" :class="style" v-if="part.type === 'text'" />
-  <ViewPart :part="part" :class="style" v-else-if="part.type === 'view'" />
-  <ScenePart :part="part" :class="style" v-else-if="part.type === 'scene'" />
+  <TextPart
+      :part="part"
+      :context="context"
+      :class="style"
+      v-if="part.type === 'text'" />
+  <ViewPart
+      :part="part"
+      :context="context"
+      :class="style"
+      v-else-if="part.type === 'view'" />
+  <ScenePart
+      :part="part"
+      :context="context"
+      :class="style"
+      v-else-if="part.type === 'scene'" />
 </template>
 
 <script>
@@ -16,7 +28,7 @@ import { buildClasses } from '@/scripts/buildClasses'
 export default {
   name: 'Part',
 
-  props: ['part'],
+  props: ['part', 'context'],
 
   components: {
     TextPart,

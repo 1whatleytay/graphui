@@ -9,6 +9,9 @@ module.exports = {
       },
       inset: {
         '100': '100%'
+      },
+      colors: {
+        shade: 'rgba(0, 0, 0, 0.4)'
       }
     }
   },

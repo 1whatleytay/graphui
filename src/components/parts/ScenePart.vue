@@ -1,6 +1,10 @@
 <template>
   <div class="flex items-center">
-    <Part v-for="(item, index) of part.content" :key="index" :part="item" />
+    <Part
+        v-for="(item, index) of part.content"
+        :key="index"
+        :part="item"
+        :context="context" />
   </div>
 </template>
 
@@ -8,7 +12,7 @@
 export default {
   name: 'ScenePart',
 
-  props: ['part'],
+  props: ['part', 'context'],
 
   components: {
     Part: () => import('@/components/parts/Part')

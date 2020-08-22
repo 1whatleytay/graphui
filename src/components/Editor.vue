@@ -6,13 +6,14 @@
 
     <div class="mt-4">
       <div v-if="selected">
-        <div class="text-sm uppercase font-light">
-          Editing: <span class="font-bold">{{ getPartName(selected) }}</span>
-        </div>
+<!--        <div class="text-sm uppercase font-light">-->
+<!--          Editing: <span class="font-bold">{{ getPartName(selected) }}</span>-->
+<!--        </div>-->
 
         <TextEditor
             v-model="selected.content"
             meta="Content"
+            :context="context"
             v-if="options.includes('content')"/>
 
         <TextAlignEditor
@@ -67,7 +68,7 @@ import { editorOptions } from '@/scripts/editorOptions'
 export default {
   name: 'Editor',
 
-  props: ['selected'],
+  props: ['context'],
 
   components: {
     TextEditor,
@@ -77,8 +78,12 @@ export default {
   },
 
   computed: {
+    selected() {
+      return this.context.selected
+    },
+
     options() {
-      return editorOptions[this.selected.type]
+      return editorOptions[this.context.selected.type]
     }
   },
 

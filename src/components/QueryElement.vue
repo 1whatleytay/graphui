@@ -2,7 +2,7 @@
   <div>
     <div class="relative flex items-center mt-2 group">
       <div
-          class="border-b-2 border-gray-700 flex-1 py-1 px-2 mr-2"
+          class="border-b-2 border-gray-700 flex-1 p-1 mr-2"
           v-if="typeHasFields(value.lowestType) && hasChildren">
         {{ value.name }}
       </div>
@@ -11,7 +11,7 @@
           type="text"
           v-model="value.name"
           @input="makeSuggestions"
-          class="flex-1 border-b rounded py-1 px-2 mr-2 bg-transparent"
+          class="flex-1 border-b rounded p-1 mr-2 bg-transparent"
           placeholder="field..."
           @keydown.enter="select(value.name)"
           v-clickaway="closeSuggestions"
@@ -75,6 +75,7 @@ import Trash from 'heroicons/outline/trash.svg'
 
 // Scripts
 import { makeTypename, typeHasFields } from '@/scripts/makeTypename'
+import { makeQueryElement } from '@/scripts/makeQueryElement'
 
 // Libraries
 import Fuse from 'fuse.js'
@@ -139,7 +140,7 @@ export default {
         this.value.lowestType = this.findLowestType(element.type)
 
         if (typeHasFields(this.value.lowestType)) {
-          this.value.parts = [{ name: '', parts: [], type: null, lowestType: null }]
+          this.value.parts = [makeQueryElement()]
         }
 
         this.$emit('select', this.value)
@@ -150,7 +151,7 @@ export default {
     },
 
     add() {
-      this.value.parts.push({ name: '', parts: [], type: null, lowestType: null })
+      this.value.parts.push(makeQueryElement())
     },
 
     remove(value) {

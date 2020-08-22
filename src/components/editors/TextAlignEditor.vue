@@ -8,31 +8,31 @@
       <button
           class="rounded mr-2"
           :class="{
-            'border-2 border-black': value === 'left' || !value,
+            'border-2 border-gray-700': value === 'left' || !value,
             'border': value !== 'left'
           }"
           @click="$emit('input', 'left')">
-        <MenuLeft class="w-6 h-6" />
+        <MenuLeft class="w-6 h-6 text-gray-700" />
       </button>
 
       <button
           class="rounded mr-2"
           :class="{
-            'border-2 border-black': value === 'center',
+            'border-2 border-gray-700': value === 'center',
             'border': value !== 'center'
           }"
           @click="$emit('input', 'center')">
-        <MenuCenter class="w-6 h-6" />
+        <MenuCenter class="w-6 h-6 text-gray-700" />
       </button>
 
       <button
           class="rounded mr-2"
           :class="{
-            'border-2 border-black': value === 'right',
+            'border-2 border-gray-700': value === 'right',
             'border': value !== 'right'
           }"
           @click="$emit('input', 'right')">
-        <MenuRight class="w-6 h-6" />
+        <MenuRight class="w-6 h-6 text-gray-700" />
       </button>
     </div>
   </div>

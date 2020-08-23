@@ -1,10 +1,11 @@
 <template>
   <div>
     <Part
-        v-for="(item, index) of part.content"
-        :key="index"
+        v-for="(item, i) of part.content"
+        :key="i"
+        :index="index"
         :part="item"
-        :context="playing"/>
+        :context="context"/>
   </div>
 </template>
 
@@ -12,7 +13,7 @@
 export default {
   name: 'ViewPart',
 
-  props: ['part', 'context'],
+  props: ['part', 'index', 'context'],
 
   components: {
     Part: () => import('@/components/parts/Part')

@@ -6,9 +6,10 @@
         @click="$emit('select', part)">
       <div>
         <MenuAlt1 class="w-4 h-4 mr-2" v-if="part.type === 'text'" />
+        <Photograph class="w-4 h-4 mr-2" v-else-if="part.type === 'image'" />
         <DotsVertical class="w-4 h-4 mr-2" v-else-if="part.type === 'view'" />
         <DotsHorizontal class="w-4 h-4 mr-2" v-else-if="part.type === 'scene'" />
-        <Photograph class="w-4 h-4 mr-2" v-else-if="part.type === 'image'" />
+        <ViewGridAdd class="w-4 h-4 mr-2" v-else-if="part.type === 'iterator'" />
         <Hashtag class="w-4 h-4 mr-2" v-else />
       </div>
       <div>
@@ -22,7 +23,7 @@
         <div class="relative">
           <button
               class="border rounded p-1 invisible group-hover:visible"
-              v-if="part.type === 'view' || part.type === 'scene'"
+              v-if="part.type === 'view' || part.type === 'scene' || part.type === 'iterator'"
               @click="$emit('prompt', part)">
             <Plus class="w-3 h-3" />
           </button>
@@ -41,7 +42,7 @@
         </button>
       </div>
     </button>
-    <div v-if="part.type === 'view' || part.type === 'scene'" class="pl-4">
+    <div v-if="part.type === 'view' || part.type === 'scene' || part.type === 'iterator'" class="pl-4">
       <TreeChild
           v-for="(item, index) of part.content"
           :key="index"
@@ -59,6 +60,7 @@ import Trash from 'heroicons/outline/trash.svg'
 import Hashtag from 'heroicons/outline/hashtag.svg'
 import MenuAlt1 from 'heroicons/outline/menu-alt-1.svg'
 import Photograph from 'heroicons/outline/photograph.svg'
+import ViewGridAdd from 'heroicons/outline/view-grid-add.svg'
 import DotsVertical from 'heroicons/outline/dots-vertical.svg'
 import DotsHorizontal from 'heroicons/outline/dots-horizontal.svg'
 
@@ -83,6 +85,7 @@ export default {
     Hashtag,
     MenuAlt1,
     Photograph,
+    ViewGridAdd,
     DotsVertical,
     DotsHorizontal,
 

@@ -1,19 +1,27 @@
 <template>
-  <img :src="content" :alt="Image" />
+  <img :src="content" alt="Image" />
 </template>
 
 <script>
 export default {
   name: 'ImagePart',
 
-  props: ['part', 'context'],
+  props: ['part', 'index', 'context'],
 
   computed: {
     content() {
       if ((typeof this.part.content === 'object')) {
-        const data = this.context.playing ? this.context.data[this.part.content.id] : null
+        let data = this.context.data[this.part.content.id]
 
-        return data || this.part.content.name
+        for (const k of this.index) {
+          data = data[k]
+        }
+
+        if (this.context.playing && data !== undefined) {
+          return data
+        }
+
+        return '/guineapig.webp'
       }
 
       return this.part.content

@@ -3,7 +3,7 @@
       class="absolute top-0 left-0 bg-shade w-screen h-screen flex items-center justify-center z-20"
       @click="$emit('close')">
     <div class="bg-white rounded shadow p-4" @click.stop>
-      <div class="">
+      <div>
         <div class="text-lg uppercase font-medium flex items-center">
           <div class="mr-12">Select an Input</div>
 

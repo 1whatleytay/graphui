@@ -1,9 +1,11 @@
 <template>
   <div v-if="query.name.length">
     <div v-if="query.parts.length">
-      <div class="w-full text-gray-700 text-left my-2 px-2 font-medium border-b">
+      <button
+          class="w-full text-gray-700 text-left my-2 px-2 font-medium border-b hover:bg-gray-100 rounded"
+          @click="$emit('select', query)">
         {{ query.name }}
-      </div>
+      </button>
 
       <div class="ml-4" >
         <InputQuery

@@ -21,7 +21,7 @@
         v-if="!context.playing" />
 
     <button
-        class="absolute bottom-0 left-0 ml-8 mb-8"
+        class="fixed bottom-0 left-0 ml-8 mb-8"
         @click="context.playing = false"
         v-if="context.playing">
       <Pause class="w-34 h-24 text-gray-700 opacity-75" />
@@ -136,7 +136,7 @@ export default {
           break
         }
 
-        if (arr[a].type === 'view' || arr[a].type === 'scene') {
+        if (arr[a].type === 'view' || arr[a].type === 'scene' || arr[a].type === 'iterator') {
           this.removeRecursive(value, arr[a].content)
         }
       }
@@ -186,7 +186,13 @@ export default {
       if (!query.name.length)
         return
 
-      const part = parent[query.name]
+      let part
+
+      if (Array.isArray(parent)) {
+        part = parent.map(x => x[query.name])
+      } else {
+        part = parent[query.name]
+      }
 
       console.log(`Loading ${part} into query ${query.id} with name ${query.name}.`)
       this.context.data[query.id] = part

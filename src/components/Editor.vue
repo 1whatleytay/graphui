@@ -16,6 +16,11 @@
             meta="URL"
             :context="context"
             v-if="options.includes('url')"/>
+        <TextEditor
+            v-model="selected.query"
+            meta="Query"
+            :context="context"
+            v-if="options.includes('query')"/>
 
         <TextAlignEditor
             v-model="selected.classes.textAlign"
@@ -55,6 +60,17 @@
             v-model="selected.classes.height"
             meta="Height"
             v-if="options.includes('height')" />
+
+        <SliderEditor
+            v-model="selected.classes.margin"
+            meta="Margin"
+            :allowed="sizes"
+            v-if="options.includes('margin')" />
+        <SliderEditor
+            v-model="selected.classes.padding"
+            meta="Padding"
+            :allowed="sizes"
+            v-if="options.includes('padding')" />
       </div>
 
       <div class="text-center text-gray-700" v-else>
@@ -69,6 +85,7 @@
 import TextEditor from '@/components/editors/TextEditor'
 import ColorEditor from '@/components/editors/ColorEditor'
 import SliderEditor from '@/components/editors/SliderEditor'
+// import DirectionEditor from '@/components/editors/DirectionEditor'
 import TextAlignEditor from '@/components/editors/TextAlignEditor'
 import ProportionEditor from '@/components/editors/ProportionEditor'
 
@@ -85,8 +102,17 @@ export default {
     TextEditor,
     ColorEditor,
     SliderEditor,
+    // DirectionEditor,
     TextAlignEditor,
     ProportionEditor
+  },
+
+  data() {
+    return {
+      sizes: [
+          '0', '1', '2', '3', '4', '5', '6', '8', '10', '12', '16', '20', '24', '32', '40', '48', '56', '64', 'auto'
+      ]
+    }
   },
 
   computed: {

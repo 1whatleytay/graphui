@@ -3,6 +3,7 @@
     <Part
         v-for="(part, index) of tree"
         :key="index"
+        :index="[]"
         :part="part"
         :context="context" />
   </div>

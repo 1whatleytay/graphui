@@ -8,7 +8,9 @@ export const editorOptions = {
     'rounded',
     'textAlign',
     'width',
-    'height'
+    'height',
+    'margin',
+    'padding'
   ],
   view: [
     'backgroundColor',
@@ -16,7 +18,9 @@ export const editorOptions = {
     'borderColor',
     'rounded',
     'width',
-    'height'
+    'height',
+    'margin',
+    'padding'
   ],
   scene: [
     'backgroundColor',
@@ -24,7 +28,9 @@ export const editorOptions = {
     'borderColor',
     'rounded',
     'width',
-    'height'
+    'height',
+    'margin',
+    'padding'
   ],
   image: [
     'url',
@@ -32,6 +38,11 @@ export const editorOptions = {
     'borderColor',
     'rounded',
     'width',
-    'height'
+    'height',
+    'margin'
   ],
+  iterator: [
+    'query',
+    'padding'
+  ]
 }

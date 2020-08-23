@@ -12,6 +12,10 @@ export function buildDirection(direction, prefix) {
   if (!direction)
     return []
 
+  if (typeof direction !== 'object') {
+    return [`${prefix}-${direction}`]
+  }
+
   const result = []
   if (prefix.all)
     result.push(`${prefix}-${prefix.all}`)
@@ -75,6 +79,8 @@ export function buildRounded(rounded) {
 
 export function buildClasses(classes) {
   const build = []
+
+  console.log(classes)
 
   build.push(...buildColor(classes.textColor, 'text'))
   build.push(...buildColor(classes.backgroundColor, 'bg'))

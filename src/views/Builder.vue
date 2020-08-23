@@ -1,31 +1,36 @@
 <template>
-  <div class="flex h-screen">
-    <Tree
-        class="w-72 h-full overflow-y-scroll"
-        :tree="context.tree"
-        :selected="context.selected"
-        :prompt="context.prompt"
-        @select="changeSelected"
-        @prompt="changePrompt"
-        @create="createElement"
-        @remove="removeElement"
-        v-if="!context.playing" />
-    <Preview
-        class="flex-1 bg-gray-100"
-        :tree="context.tree"
-        :context="context" />
-    <Properties
-        class="w-72 h-full overflow-y-scroll"
-        :context="context"
-        @play="play"
-        v-if="!context.playing" />
+  <div class="flex-col h-screen">
+    <div class="w-full h-1 bg-teal-300 absolute">
 
-    <button
-        class="fixed bottom-0 left-0 ml-8 mb-8"
-        @click="context.playing = false"
-        v-if="context.playing">
-      <Pause class="w-34 h-24 text-gray-700 opacity-75" />
-    </button>
+    </div>
+    <div class="h-screen flex">
+      <Tree
+          class="w-72 h-full overflow-y-scroll"
+          :tree="context.tree"
+          :selected="context.selected"
+          :prompt="context.prompt"
+          @select="changeSelected"
+          @prompt="changePrompt"
+          @create="createElement"
+          @remove="removeElement"
+          v-if="!context.playing" />
+      <Preview
+          class="flex-1 bg-gray-100"
+          :tree="context.tree"
+          :context="context" />
+      <Properties
+          class="w-72 h-full overflow-y-scroll"
+          :context="context"
+          @play="play"
+          v-if="!context.playing" />
+
+      <button
+          class="fixed bottom-0 left-0 ml-8 mb-8"
+          @click="context.playing = false"
+          v-if="context.playing">
+        <Pause class="w-34 h-24 text-gray-700 opacity-75" />
+      </button>
+    </div>
   </div>
 </template>
 

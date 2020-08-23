@@ -3,6 +3,8 @@ export const editorOptions = {
     'content',
     'backgroundColor',
     'textColor',
+    'fontSize',
+    'fontWeight',
     'borderSize',
     'borderColor',
     'rounded',

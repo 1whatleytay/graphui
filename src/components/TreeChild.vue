@@ -12,7 +12,7 @@
         <ViewGridAdd class="w-4 h-4 mr-2" v-else-if="part.type === 'iterator'" />
         <Hashtag class="w-4 h-4 mr-2" v-else />
       </div>
-      <div>
+      <div class="truncate">
         {{ getPartName(part) }}
       </div>
 

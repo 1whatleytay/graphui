@@ -28,6 +28,11 @@
             v-if="options.includes('textAlign')" />
 
         <SliderEditor
+            v-model="selected.classes.fontSize"
+            meta="Font Size"
+            :allowed="[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]"
+            v-if="options.includes('fontSize')" />
+        <SliderEditor
             v-model="selected.classes.borderSize"
             meta="Border Size"
             :allowed="[0, 1, 2, 4]"

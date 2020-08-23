@@ -77,6 +77,40 @@ export function buildRounded(rounded) {
   return [map[rounded]]
 }
 
+export function buildFontSize(size) {
+  if (!size)
+    return []
+
+  const map = {
+    0: 'text-xs',
+    1: 'text-sm',
+    2: 'text-base',
+    3: 'text-lg',
+    4: 'text-xl',
+    5: 'text-2xl',
+    6: 'text-3xl',
+    7: 'text-4xl',
+    8: 'text-5xl',
+    9: 'text-6xl',
+  }
+
+  return [map[size]]
+}
+
+export function buildFontWeight(weight) {
+  if (!weight)
+    return []
+
+  const map = {
+    'bold': 'font-bold',
+    'italic': 'font-italic'
+  }
+
+  const value = map[weight]
+
+  return value ? [value] : []
+}
+
 export function buildClasses(classes) {
   const build = []
 
@@ -92,6 +126,8 @@ export function buildClasses(classes) {
   build.push(...buildAlign(classes.textAlign, 'text'))
   build.push(...buildBorder(classes.borderSize))
   build.push(...buildRounded(classes.rounded))
+  build.push(...buildFontSize(classes.fontSize))
+  build.push(...buildFontWeight(classes.fontWeight))
 
   return build.join(' ')
 }

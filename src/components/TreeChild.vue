@@ -8,6 +8,7 @@
         <MenuAlt1 class="w-4 h-4 mr-2" v-if="part.type === 'text'" />
         <DotsVertical class="w-4 h-4 mr-2" v-else-if="part.type === 'view'" />
         <DotsHorizontal class="w-4 h-4 mr-2" v-else-if="part.type === 'scene'" />
+        <Photograph class="w-4 h-4 mr-2" v-else-if="part.type === 'image'" />
         <Hashtag class="w-4 h-4 mr-2" v-else />
       </div>
       <div>
@@ -57,6 +58,7 @@ import Plus from 'heroicons/outline/plus.svg'
 import Trash from 'heroicons/outline/trash.svg'
 import Hashtag from 'heroicons/outline/hashtag.svg'
 import MenuAlt1 from 'heroicons/outline/menu-alt-1.svg'
+import Photograph from 'heroicons/outline/photograph.svg'
 import DotsVertical from 'heroicons/outline/dots-vertical.svg'
 import DotsHorizontal from 'heroicons/outline/dots-horizontal.svg'
 
@@ -80,6 +82,7 @@ export default {
     Trash,
     Hashtag,
     MenuAlt1,
+    Photograph,
     DotsVertical,
     DotsHorizontal,
 

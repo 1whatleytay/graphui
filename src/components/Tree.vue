@@ -1,7 +1,7 @@
 <template>
   <div class="p-4">
     <div class="text-lg uppercase font-medium flex items-center">
-      Tree
+      Project
 
       <div class="ml-auto relative">
         <button

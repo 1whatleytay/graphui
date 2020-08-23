@@ -143,6 +143,10 @@ export default {
     },
 
     removeElement(value) {
+      if (this.context.selected === value) {
+        this.context.selected = null
+      }
+
       this.removeRecursive(value, this.context.tree)
     },
 
@@ -205,6 +209,8 @@ export default {
         const result = (await axios.post(this.context.endpoint, { query }, {
           headers: { 'Authorization': token ? `Bearer ${token}` : undefined }
         })).data
+
+        console.log(result)
 
         for (const query of this.context.queries) {
           this.loadIntoState(result.data, query)

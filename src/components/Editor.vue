@@ -1,20 +1,21 @@
 <template>
   <div>
-    <div class="text-lg uppercase font-medium">
-      Editor
-    </div>
+<!--    <div class="text-lg uppercase font-medium">-->
+<!--      Editor-->
+<!--    </div>-->
 
     <div class="mt-4">
       <div v-if="selected">
-<!--        <div class="text-sm uppercase font-light">-->
-<!--          Editing: <span class="font-bold">{{ getPartName(selected) }}</span>-->
-<!--        </div>-->
-
         <TextEditor
             v-model="selected.content"
             meta="Content"
             :context="context"
             v-if="options.includes('content')"/>
+        <TextEditor
+            v-model="selected.content"
+            meta="URL"
+            :context="context"
+            v-if="options.includes('url')"/>
 
         <TextAlignEditor
             v-model="selected.classes.textAlign"
@@ -45,6 +46,15 @@
             meta="Border Color"
             :class="{ 'opacity-50 pointer-events-none': !selected.classes.borderSize }"
             v-if="options.includes('borderColor')" />
+
+        <ProportionEditor
+            v-model="selected.classes.width"
+            meta="Width"
+            v-if="options.includes('width')" />
+        <ProportionEditor
+            v-model="selected.classes.height"
+            meta="Height"
+            v-if="options.includes('height')" />
       </div>
 
       <div class="text-center text-gray-700" v-else>
@@ -60,6 +70,7 @@ import TextEditor from '@/components/editors/TextEditor'
 import ColorEditor from '@/components/editors/ColorEditor'
 import SliderEditor from '@/components/editors/SliderEditor'
 import TextAlignEditor from '@/components/editors/TextAlignEditor'
+import ProportionEditor from '@/components/editors/ProportionEditor'
 
 // Scripts
 import { getPartName } from '@/scripts/getPartName'
@@ -74,7 +85,8 @@ export default {
     TextEditor,
     ColorEditor,
     SliderEditor,
-    TextAlignEditor
+    TextAlignEditor,
+    ProportionEditor
   },
 
   computed: {

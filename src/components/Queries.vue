@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="text-lg uppercase font-medium">
-      Queries
-    </div>
+<!--    <div class="text-lg uppercase font-medium">-->
+<!--      Queries-->
+<!--    </div>-->
 
     <div class="text-sm uppercase font-medium mt-4 text-gray-700 flex items-center">
       GraphQL Endpoint

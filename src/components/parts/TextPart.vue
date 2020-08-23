@@ -13,11 +13,13 @@ export default {
   computed: {
     content() {
       if ((typeof this.part.content === 'object')) {
-        const data = this.context.playing ? this.context.data[this.part.content.id] : null
+        const data = this.context.data[this.part.content.id]
 
-        console.log(data || this.part.content.name)
+        if (this.context.playing && data !== undefined) {
+          return data
+        }
 
-        return data || this.part.content.name
+        return `{ ${this.part.content.name} }`
       }
 
       console.log(this.part.content)

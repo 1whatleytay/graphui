@@ -14,6 +14,14 @@
 
     <button
         class="flex items-center p-2 rounded hover:bg-gray-100 w-full text-base"
+        @click="$emit('create', { type: 'image', classes: {}, content: '/guineapig.webp' })">
+      <Photograph class="w-4 h-4 mr-2" />
+
+      Image
+    </button>
+
+    <button
+        class="flex items-center p-2 rounded hover:bg-gray-100 w-full text-base"
         @click="$emit('create', { type: 'view', classes: {}, content: [] })">
       <DotsVertical class="w-4 h-4 mr-2" />
 
@@ -33,6 +41,7 @@
 <script>
 // Icons
 import MenuAlt1 from 'heroicons/outline/menu-alt-1.svg'
+import Photograph from 'heroicons/outline/photograph.svg'
 import DotsVertical from 'heroicons/outline/dots-vertical.svg'
 import DotsHorizontal from 'heroicons/outline/dots-horizontal.svg'
 
@@ -41,6 +50,7 @@ export default {
 
   components: {
     MenuAlt1,
+    Photograph,
     DotsVertical,
     DotsHorizontal
   }
